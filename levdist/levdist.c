@@ -10,19 +10,7 @@
 #include "levdist.h"
 #include "debug_table.h"
 
-long r_edist(char s[], int m, char t[], int n) {
-	long a, b, c;
-	if (m == 0 && n == 0)
-		return 0;
-	if (m == 0)
-		return n;
-	if (n == 0)
-		return m;
-	a = r_edist(s, m, t, n-1) + 1;
-	b = r_edist(s, m-1, t, n) + 1;
-	c = r_edist(s, m-1, t, n-1) + ((s[m-1] == t[n-1])? 0 : 1);
-	return (a < b ? (a < c ? a: c): (b < c ? b : c));
-}
+
 
 void setframe(long * frame, const long n, const long m) {
 	for (long i = 0; i < n + m + 1; i++) {
